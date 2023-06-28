@@ -1,28 +1,28 @@
 pipeline{
-    
     agent any
 
-        stages {
+    stages {
 
-            stage('Checkout Code') {
+        stage('Checkout Code') {
 
-                steps {
+            steps {
                 
-                    script {
+                script {
                     
-                        git branch: 'main', url: 'https://github.com/MuhammadAhsanDonuts/devops_proj_1.git'
-                    }
-                
+                    git branch: 'main', url: 'https://github.com/MuhammadAhsanDonuts/devops_proj_1.git'
                 }
+                
             }
-
-            stage('Unit Testing') {
-
-                steps {
-                
-                   'sh mvn test'
-                
-                }
-
         }
+
+        stage('Unit Testing') {
+
+            steps {
+                
+                'sh mvn test'
+                
+            }
+        }
+    }
+
 }
