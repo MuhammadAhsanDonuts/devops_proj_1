@@ -6,11 +6,14 @@ pipeline{
 
             stage('Checkout Code') {
 
-                script {
+                steps {
+                
+                    script {
                     
-                    git branch: 'main', url: 'https://github.com/MuhammadAhsanDonuts/devops_proj_1.git'
+                        git branch: 'main', url: 'https://github.com/MuhammadAhsanDonuts/devops_proj_1.git'
+                    }
+                
                 }
-
             }
         }
 }
