@@ -1,4 +1,5 @@
-pipeline{
+pipeline {
+    
     agent any
 
     stages {
@@ -32,7 +33,7 @@ pipeline{
             steps {
 
                  script {
-                    
+                   
                     sh 'mvn verify -DskipUnitTests'
                 }
                  
@@ -59,23 +60,11 @@ pipeline{
                     withSonarQubeEnv(credentialsId: 'SONARQUBE-API') {
                         
                          sh 'mvn clean package sonar:sonar'
-}
-                }
-                    
-            }
-        }
 
-        stage('Quality Gate Status'){
-                
-                steps{
-                    
-                    script{
-                        
-                        waitForQualityGate abortPipeline: false, credentialsId: 'SONARQUBE-API'
-                    }
                 }
+                    
             }
-        }
+        }    
 
     }
 
