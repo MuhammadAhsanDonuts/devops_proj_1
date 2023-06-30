@@ -94,9 +94,9 @@ pipeline{
                     
                 script{
                     
-                    sh 'docker build -t $JOB_NAME:v1.$BUILD_ID .'
-                    sh 'docker tag $JOB_NAME:v1.$BUILD_ID dockeriddonuts/$JOB_NAME:v1.$BUILD_ID'
-                    sh 'docker tag $JOB_NAME:v1.$BUILD_ID dockeriddonuts/$JOB_NAME:latest'
+                    sh 'docker build -t $DOCKER_IMAGE_NAME:v1.$BUILD_ID .'
+                    sh 'docker tag $DOCKER_IMAGE_NAME:v1.$BUILD_ID dockeriddonuts/$DOCKER_IMAGE_NAME:v1.$BUILD_ID'
+                    sh 'docker tag $DOCKER_IMAGE_NAME:v1.$BUILD_ID dockeriddonuts/$DOCKER_IMAGE_NAME:latest'
                 }
             }
         }
