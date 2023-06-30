@@ -88,6 +88,20 @@ pipeline{
             }
         }
 
+        stage('Build Docker Image'){
+                
+            steps{
+                    
+                script{
+                    
+                    sh 'docker build -t $JOB_NAME:v1.$BUILD_ID .'
+                    sh 'docker tag $JOB_NAME:v1.$BUILD_ID dockeriddonuts/$JOB_NAME:v1.$BUILD_ID'
+                    sh 'docker tag $JOB_NAME:v1.$BUILD_ID dockeriddonuts/$JOB_NAME:latest'
+
+                }
+            }
+        }
+
     }
 
 }
