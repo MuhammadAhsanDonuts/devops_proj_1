@@ -82,7 +82,7 @@ pipeline{
             steps{
                     
                 script{
-                    //    def readPromVersion = readMavenPom file: 'pom.xml'
+                    
                        nexusArtifactUploader artifacts: [[artifactId: 'springboot', classifier: '', file: 'target/Uber.jar', type: 'jar']], credentialsId: 'NEXUS_API', groupId: 'com.example', nexusUrl: '172.173.226.41:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'demo-app-springboot', version: "${readPromVersion.version}"
                 }
             }
